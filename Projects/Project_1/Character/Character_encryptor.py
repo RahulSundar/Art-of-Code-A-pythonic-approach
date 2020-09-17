@@ -19,6 +19,16 @@ def character_count_encryptor_v2(string):
         
     return code
 
+def character_count_encryptor_v4():
+    string = input("Enter data to be codified: ")
+    dictionary = character_counter(string)
+    code = ""
+    for keys,values in dictionary.items():
+        code += keys + str(values)
+        
+    return code
+
+
 def character_count_encryptor_v3(sentence):
 
     word_list = sentence.split()

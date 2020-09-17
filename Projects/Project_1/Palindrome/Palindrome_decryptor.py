@@ -13,6 +13,24 @@ def palindrome_decryptor(palindrome):
 	else:
 	    return string
 
+def palindrome_decryptorV2():
+	"""this function returns the original word or sentence of a palindrome.
+	Arguments: i(the input)
+	Example: palindrome_retriever('helloolleh')
+	output: 'hello'
+		"""
+	palindrome = str(input("Enter the palindrome: "))
+	# returns the half of or simply the original input of a string or number.
+	string = palindrome[0:len(palindrome)//2]
+	string2 = palindrome[len(palindrome)//2:]
+	if string == string2[len(string2)::-1]:
+		if string.isnumeric() == True:
+			return int(string)
+		else:
+			return string
+	else:
+		print("Not valid")
+
 
 
 def palindrome_sentence_decryptor(palindrome_sentence):

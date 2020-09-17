@@ -1,0 +1,5 @@
+#Folders to be ignored:
+__pycache__/
+
+#Files to be ignored:
+*.pyc

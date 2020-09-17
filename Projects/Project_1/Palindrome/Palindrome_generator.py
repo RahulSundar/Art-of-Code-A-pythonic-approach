@@ -3,7 +3,6 @@
 import sys
 
 def palindrome_generator(string_number):
-    
     string = str(string_number)
     palindrome = string + string[::-1]
     if string.isnumeric()==False:     
@@ -11,6 +10,15 @@ def palindrome_generator(string_number):
     else:
         return int(palindrome)
 
+
+def palindrome_generatorV3():
+    string_number = input("Enter the data to be encrypted: ")
+    string = str(string_number)
+    palindrome = string + string[::-1]
+    if string.isnumeric()==False:     
+        return palindrome 
+    else:
+        return int(palindrome)
 
 # palindromic sentence generator;
 

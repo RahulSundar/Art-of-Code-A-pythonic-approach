@@ -1,7 +1,7 @@
 
 # Main function:
 
-def base_a_encrypt(base_number):
+def base_a_encrypt(base_number=2):
     """
     Returns an encrypted code in big and litte endian formats for a user chosen number.
     The encryption is performed using a specific base number provided as an input. 
@@ -45,7 +45,7 @@ def base_a_encrypt(base_number):
     else:
         print("Hey! The base number <= 10 always in my code. Gotcha! You messed up. Take a number less than 10")
 
-def base_a_encrypt_v2(input_number, base_number):
+def base_a_encrypt_v2(input_number, base_number=2):
     """
     Returns an encrypted code in big and litte endian formats for a user chosen number.
     The encryption is performed using a specific base number provided as an input. 
@@ -112,42 +112,4 @@ def writecodetofilebrute(inputnumber, base_number):
         
 def readfromfile():
     pass
-        
-
-# 1. For a single input:
-#A = base_a_encrypt(2)
-#print(A)
-
-# 2. For a list of values:
-# 2.1V1 of base encryption
-## 2.1.1. Method 1 - Without list comprehensions
-#Empty_list = []
-#List_codes_1 = Empty_list
-#for i in range(10):
-#    List_codes_1 += [base_a_encrypt(2)]
-#print(List_codes_1)
-
-## 2.1.2. Method 2: With list comprehensions
-#List_codes_2 = [base_a_encrypt(2) for i in range(10)]
-#print(List_codes_2)
-
-#print(List_codes_1 == List_codes_2)
-
-
-# 2.2 V2 of base_encrpytion:
-
-## Initialise a list of numbers:
-#Numbers = [10, 20, 44, 564, 543, 130, 232, 432, 5, 0, 13]
-#2.2.1 Method 1: w/o list comprehension
-#List_codes_1 = []
-#for Number in Numbers:
-#    List_codes_1 += [base_a_encrypt_v2(Number, 2)]
-#print(List_codes_1)
-
-#2.2.2 Method 2: With list comprehension
-
-#List_codes_2 = []
-#List_codes_2 = [base_a_encrypt_v2(Number,2) for Number in Numbers]
-#print(List_codes_2)
-
-#print(List_codes_1 == List_codes_2)
+      
