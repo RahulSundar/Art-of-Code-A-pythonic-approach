@@ -99,17 +99,4 @@ def binary_en_rec(number, base,code):
         remainder = int(number % base) 
         quotient = int((number - remainder)/base) 
         print(quotient, remainder) 
-        return  str(binary_en_rec(quotient, base, code+str(remainder))) 
-
-
-
-def writecodetofilebrute(inputnumber, base_number):
-    with open('base_a_code.txt', mode = 'a') as filename:
-        A = base_a_encrypt_v2(inputnumber, base_number)
-        filename.write(str(A['LE']) +" " + str(A['BE']))
-        filename.write('\n')
-        
-        
-def readfromfile():
-    pass
-      
+        return  str(binary_en_rec(quotient, base, code+str(remainder)))  

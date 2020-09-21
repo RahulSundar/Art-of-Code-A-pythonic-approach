@@ -70,7 +70,7 @@ def base_a_decryptor(code, base, system = 'LE'):
             return number
     else:
         print("Base greater than 10. Please choose a base less than 10")
-        
+
 #import gradio as gr 
 
 #base = gr.inputs.Slider(minimum=0, maximum=10, default=2, label="base")
