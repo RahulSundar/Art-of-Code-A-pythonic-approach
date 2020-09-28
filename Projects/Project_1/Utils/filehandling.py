@@ -6,8 +6,18 @@ def readfromfile(modulename = "Binary", File = "base_a_code.txt", linenumber=0):
             return {"BE": A[linenumber-1].split()[0], "LE":A[linenumber-1].split()[1]} 
         else:
             return A[linenumber-1][:-1]
-
-            
+     
+def readuserfile(File):
+    with open(File, mode = 'r') as filename:
+        A = filename.readlines()
+        UserNameList = []
+        PasswordList = []
+        for i in range(len(A)):
+            UserNameList.append(A[i].split()[0])
+            PasswordList.append(A[i].split()[1])
+        return UserNameList, PasswordList
+        
+                  
 def writecodetofilebrute(code, modulename = "Binary", File = "base_a_code.txt"):
     with open(File, mode = 'a') as filename:
         A = code
