@@ -55,3 +55,9 @@ except(KeyError):
     print("----------------------------------------------------------------\n")
 finally:
     print("All done")
+
+
+#Generate a new userid, password.
+#Reset a password
+#Set a GUI interface
+#File handling of dictionary output and reading dictionaries from files. (json, pickle, pycrypto)
