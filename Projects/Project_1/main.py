@@ -1,11 +1,11 @@
-import Character.Character_encryptor as charenc
+
 import Palindrome.Palindrome_generator as palgen 
 import Palindrome.Palindrome_decryptor as paldec
 import Utils.filehandling as fhandle
 
 from Binary.base_a_decryption import BaseDecrypt
 from Binary.base_a_encryption import BaseEncrypt
-
+from Character.Character_encryptor import CharEnc
 
 if __name__ == "__main__":
 
@@ -43,7 +43,9 @@ if __name__ == "__main__":
             elif user_choice_method == '2':
                 print(palgen.palindrome_generatorV3())
             elif user_choice_method == '3':
-                print(charenc.character_count_encryptor_v4())
+                Charenc = CharEnc()
+                #string = input()
+                print(Charenc.character_count_encryptor_v4())
             elif user_choice_method == '12':
                 user_base = int(input("Enter the base number: "))
                 basenc = BaseEncrypt(base_number = user_base)
@@ -53,9 +55,12 @@ if __name__ == "__main__":
                 basenc = BaseEncrypt(base_number = user_base)
                 print(basenc.base_a_encrypt_v2(int(palgen.palindrome_generatorV3()))['LE'])
             elif user_choice_method == '23':
-                print(charenc.character_count_encryptor_v2(palgen.palindrome_generatorV3()))
+                Charenc = CharEnc()
+                print(Charenc.character_count_encryptor_v2(palgen.palindrome_generatorV3()))
             elif user_choice_method == '32':
-                print(palgen.palindrome_generator(charenc.character_count_encryptor_v4()))
+                Charenc = CharEnc()
+                string = input("Enter data to be codified: ")
+                print(palgen.palindrome_generator(Charenc.character_count_encryptor_v2(string)))
             elif user_choice_method == '1W':
                 basenc = BaseEncrypt()
                 code = basenc.base_a_encrypt()
@@ -70,7 +75,9 @@ if __name__ == "__main__":
                 linenumber = int(input("Enter line number to read from: "))
                 print(fhandle.readfromfile(linenumber = linenumber, modulename = 'Palindrome',  File = 'palindrome_code.txt'))
             elif user_choice_method == '3W':
-                code = charenc.character_count_encryptor_v4()
+                Charenc = CharEnc()
+                string = input()
+                code = Charenc.character_count_encryptor_v2(string)
                 fhandle.writecodetofilebrute(code, modulename = "Char", File = 'char_code.txt')
             elif user_choice_method == '3R':
                 linenumber = int(input("Enter line number to read from: "))
