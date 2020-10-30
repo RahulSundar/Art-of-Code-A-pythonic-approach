@@ -10,6 +10,7 @@ UsernameList, PasswordList = fhandle.readuserfile('Input.txt')
 #print(UsernameList, PasswordList)
 
 Credentials = {}
+#Saves your credentials as a dictionary
 for i in range(len(PasswordList)):
     if PasswordList[i].isnumeric() == True: 
         c1 = palgen.palindrome_generator(PasswordList[i]) 
