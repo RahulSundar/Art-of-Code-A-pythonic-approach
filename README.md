@@ -27,6 +27,9 @@ This repository is a part of an online course taken by me for School kids to tea
   6.3 Simple algorithms
     6.3.1 Sorting
     6.3.2 Searching
+7. Python: Object Oriented Programming
+8. Python: Modular programming, use and application of OOP
+9. Python: Python package development
   
   
   
