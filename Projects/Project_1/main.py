@@ -1,11 +1,9 @@
-
-import Palindrome.Palindrome_generator as palgen 
-import Palindrome.Palindrome_decryptor as paldec
-import Utils.filehandling as fhandle
-
-from Binary.base_a_decryption import BaseDecrypt
-from Binary.base_a_encryption import BaseEncrypt
-from Character.Character_encryptor import CharEnc
+import Modules.pyEnc.Binary.base_a_decryption as basdec
+import Modules.pyEnc.Binary.base_a_encryption as basenc
+import Modules.pyEnc.Character.Character_encryptor as charenc
+import Modules.pyEnc.Palindrome.Palindrome_generator as palgen 
+import Modules.pyEnc.Palindrome.Palindrome_decryptor as paldec
+import Modules.pyEnc.Utils.filehandling as fhandle
 
 if __name__ == "__main__":
 
@@ -38,31 +36,24 @@ if __name__ == "__main__":
  
             if user_choice_method == '1':
                 user_base = int(input("Enter the base number: "))
-                basenc = BaseEncrypt(base_number = user_base)
-                print(basenc.base_a_encrypt())
+                print(basenc.base_a_encrypt(base_number = user_base))
             elif user_choice_method == '2':
                 print(palgen.palindrome_generatorV3())
             elif user_choice_method == '3':
-                Charenc = CharEnc()
                 #string = input()
-                print(Charenc.character_count_encryptor_v4())
+                print(charenc.character_count_encryptor_v4())
             elif user_choice_method == '12':
                 user_base = int(input("Enter the base number: "))
-                basenc = BaseEncrypt(base_number = user_base)
-                print(palgen.palindrome_generator(basenc.base_a_encrypt()['LE']))
+                print(palgen.palindrome_generator(basenc.base_a_encrypt(base_number = user_base)['LE']))
             elif user_choice_method == '21': 
                 user_base = int(input("Enter the base number: "))
-                basenc = BaseEncrypt(base_number = user_base)
                 print(basenc.base_a_encrypt_v2(int(palgen.palindrome_generatorV3()))['LE'])
             elif user_choice_method == '23':
-                Charenc = CharEnc()
-                print(Charenc.character_count_encryptor_v2(palgen.palindrome_generatorV3()))
+                print(charenc.character_count_encryptor_v2(palgen.palindrome_generatorV3()))
             elif user_choice_method == '32':
-                Charenc = CharEnc()
-                string = input("Enter data to be codified: ")
-                print(palgen.palindrome_generator(Charenc.character_count_encryptor_v2(string)))
+                string = input("Enter ata to be codified: ")
+                print(palgen.palindrome_generator(charenc.character_count_encryptor_v2(string)))
             elif user_choice_method == '1W':
-                basenc = BaseEncrypt()
                 code = basenc.base_a_encrypt()
                 fhandle.writecodetofilebrute(code, modulename = "Binary")
             elif user_choice_method == '1R':
@@ -75,9 +66,8 @@ if __name__ == "__main__":
                 linenumber = int(input("Enter line number to read from: "))
                 print(fhandle.readfromfile(linenumber = linenumber, modulename = 'Palindrome',  File = 'palindrome_code.txt'))
             elif user_choice_method == '3W':
-                Charenc = CharEnc()
                 string = input()
-                code = Charenc.character_count_encryptor_v2(string)
+                code = charenc.character_count_encryptor_v2(string)
                 fhandle.writecodetofilebrute(code, modulename = "Char", File = 'char_code.txt')
             elif user_choice_method == '3R':
                 linenumber = int(input("Enter line number to read from: "))
@@ -105,15 +95,12 @@ if __name__ == "__main__":
             print("---------------------------------") 
             user_choice_method = input("Enter your choice of method: ")
             if user_choice_method == '1':
-                basdec = BaseDecrypt()
                 print(basdec.binary_decryptorV2())
             elif user_choice_method == '2':
                 print(paldec.palindrome_decryptorV2())
             elif user_choice_method == '12':
-                basdec = BaseDecrypt()
                 print(basdec.binary_decryptor(paldec.palindrome_decryptorV2()))
             elif user_choice_method == '21':
-                basdec = BaseDecrypt()
                 print(paldec.palindrome_decryptor(basdec.binary_decryptorV2()))
             else:
                 print("Not a valid choice of method. Valid choices are as follows: \n")
