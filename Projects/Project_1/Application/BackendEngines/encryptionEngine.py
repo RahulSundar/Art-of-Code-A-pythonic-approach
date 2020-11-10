@@ -1,14 +1,22 @@
 #preload modules
+import sys, os
 
-import Modules.pyEnc.Binary.base_a_encryption as basenc
-import Modules.pyEnc.Character.Character_encryptor as charenc
-import Modules.pyEnc.Palindrome.Palindrome_generator as palgen 
-import Modules.pyEnc.Utils.filehandling as fhandle
+sys.path.append("/home/ratnamaru/Documents/Acads/OnlineCourses/GITHUB/MY_REPOS/Art-of-Code-A-pythonic-approach/Projects/Project_1/Modules")
 
-#Import user defined classes
+
+#prerequisite modules
+import pyEnc.Binary.base_a_decryption as basdec
+import pyEnc.Binary.base_a_encryption as basenc
+import pyEnc.Character.Character_encryptor as charenc
+import pyEnc.Palindrome.Palindrome_generator as palgen 
+import pyEnc.Palindrome.Palindrome_decryptor as paldec
+import pyEnc.Utils.filehandling as fhandle
+
+
+sys.path.append("/home/ratnamaru/Documents/Acads/OnlineCourses/GITHUB/MY_REPOS/Art-of-Code-A-pythonic-approach/Projects/Project_1/Application")
+
+#IMport user defined classes
 from Utils.filehandler import FileHandler
-
-
 
 class EncryptionEngine():
     
@@ -38,3 +46,7 @@ class EncryptionEngine():
         else:
             return Nones        
         
+        
+        
+if __name__ == "__main__":
+    print("modules loaded successfully")
