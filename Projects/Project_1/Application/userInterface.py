@@ -44,31 +44,43 @@ if __name__ == "__main__":
         print("-----------------------------------")
         user_input = input("Enter your choice here: \n")
         
+        # Login is buggy
         if user_input == "1":
-            ctr = 0
+            globals()['ctr'] = 1
             status = "Login"
             user_id = input("User ID:- ")
-            password = input("Password:- ")
+            password = int(input("Password:- "))
             validator = ValidationGenerationEngine(status = "Login", userid = user_id, password = password)
             while(ctr<3):
+                #login validation bug free
                 if validator.validateCredentials():
                     print("-----------------------------------")
                     print("      Logged in Successfully")
                     print("-----------------------------------")
-                else:
-                    ctr += 1
+                    ctr = 3
+                    waiting_for_input = False
+                #exception handling is buggy
+                elif not validator.validateCredentials():
+                    ctr = ctr + 1
                     print("---------------------------------------------------------------------------------------------------")
-                    print("Please try again. Maximum three attempts are allowed. This is your " + str(ctr+1) + "th attempt.\n")
+                    print("Please try again. Maximum three attempts are allowed. This is your " + str(ctr) + "th attempt.\n")
                     print("---------------------------------------------------------------------------------------------------")
                     status = "Login"
                     user_id = input("User ID:- ")
                     password = input("Password:- ")
                     validator = ValidationGenerationEngine(status = "Login", userid = user_id, password = password)
                     validator.validateCredentials()
+                else:
+                    break
         elif user_input == "2":
             pass
+        # Generation bug free
         elif user_input == "3":
-            pass
+            status = "Login"
+            user_id = input("User ID:- ")
+            password = int(input("Password:- "))
+            register = ValidationGenerationEngine(status = "Register", userid = user_id, password = password)
+            register.generateCredentials()
         elif user_input == "Q":
             waiting_for_input = False
         else:

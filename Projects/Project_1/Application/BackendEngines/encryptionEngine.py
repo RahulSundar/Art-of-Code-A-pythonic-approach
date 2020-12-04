@@ -28,23 +28,24 @@ class EncryptionEngine():
         This function does a 3 way encryption using a sequence of Binary + Palindrome + Character (123)
         """
         
-        encrypted_pwd = charenc.character_encryptor(palgen.palindrome_generator_v2(basenc.binary_encryptor(self.password)))
-        
+        encrypted_pwd = charenc.character_count_encryptor_v2(palgen.palindrome_generator(basenc.base_a_encrypt_v2(self.password)['LE']))
+        #encrypted_pwd = basenc.base_a_encrypt_v2(self.password)['LE']
         if encrypted_pwd.isnumeric():
             return int(encrypted_pwd)
         else:
+            print("Something's wrong here.")
             return None
             
-    def TwoLayerEncryption(self):
+    def twoLayerEncryption(self):
         """
         This function operates on the output of the single layer encryption
         """
         
-        encrypted_signature = singleLayerEncryption(singleLayerEncryption(self.password))
+        encrypted_signature = charenc.character_count_encryptor_v2(palgen.palindrome_generator(basenc.base_a_encrypt_v2(self.singleLayerEncryption())['LE']))
         if encrypted_signature.isnumeric():
             return int(encrypted_signature)
         else:
-            return Nones        
+            return None        
         
         
         

@@ -23,33 +23,38 @@ from BackendEngines.encryptionEngine import EncryptionEngine
 
 class ValidationGenerationEngine(EncryptionEngine, FileHandler):
     
-    def __init__(self, userid, password):
+    def __init__(self, userid, password, status):
         self.userid = userid
         self.password = password
-        self.usercred = {userid:self.oneLayerEncryption(password), userid + "_sign": self.uniqueSignature(self.password)}
-        
+        self.usercred = {userid:self.singleLayerEncryption(), userid + "_sign": self.uniqueSignature()}
+        self.status = status
         
     def uniqueSignature(self):
-        return self.twoLayerEncryption(self.password)
+        return self.twoLayerEncryption()
     
     def validateCredentials(self):    
-        with open("UserCredentials.json", mode = "r") as ucred:
-            ucredcontent = ucred.readlines()
-            ucredDict = json.loads(ucredcontent[0])
-        #Remember ucredDict[self.userid] gives us the encrypted password
-        if ucredDict[self.userid] == self.oneLayerEncryption(self.password):
-            return True
-        else:
-            print("Wrong user ID/Password. Do you have your account registered?")
-            return False
-        
+        try:
+            with open("UserCredentials.json", mode = "r") as ucred:
+                ucredcontent = ucred.readlines()
+                ucredDict = json.loads(ucredcontent[0])
+            print(ucredDict)
+            #Remember ucredDict[self.userid] gives us the encrypted password
+            if ucredDict[self.userid] == self.singleLayerEncryption():
+                return True
+            else:
+                print("Wrong user Password. Have you forgotten your password?")
+                return False
+        except(KeyError):
+            print("User ID doesn't exist in the account database. Kindly register as a new user. Choose from the options below. ")
+            
+            
             
     def generateCredentials(self):
         with open("UserCredentials.json", mode = "r") as ucredread:
             ucredcontent = ucredread.readlines()
             ucredDict = json.loads(ucredcontent[0])
-        ucredDict[self.userid] =  self.oneLayerEncryption(self.password)
-        ucredDict[self.userid + "_sign"] =  self.uniqueSignature(self.password)      
+        ucredDict[self.userid] =  self.singleLayerEncryption()
+        ucredDict[self.userid + "_sign"] =  self.uniqueSignature()      
         with open("UserCredentials.json", mode = "w") as ucredwrite:
             ucredwrite.write(json.dumps(ucredDict))
         print("Generated new user credentials")
