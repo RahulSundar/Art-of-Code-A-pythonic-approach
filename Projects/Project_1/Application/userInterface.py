@@ -73,10 +73,26 @@ if __name__ == "__main__":
                 else:
                     break
         elif user_input == "2":
-            pass
+            status = "Reset"
+            user_id = input("User ID:- ")
+            reset_status = True
+            while(reset_status):
+                password = int(input("New Password:- "))
+                confirm_password = int(input("Confirm Password:- "))
+                if password == confirm_password:
+                    reset = ValidationGenerationEngine(status = "Reset", userid = user_id, password = password)
+                    reset.generateCredentials()
+                    reset_status = False
+                    print("---------------------------------------------------------------------------------------------------")
+                    print("Credentials reset successfully\n")
+                    print("---------------------------------------------------------------------------------------------------")
+                else:
+                    print("---------------------------------------------------------------------------------------------------")
+                    print("Please try again. password and confirmation of the password don't match.\n")
+                    print("---------------------------------------------------------------------------------------------------")
         # Generation bug free
         elif user_input == "3":
-            status = "Login"
+            status = "Register"
             user_id = input("User ID:- ")
             password = int(input("Password:- "))
             register = ValidationGenerationEngine(status = "Register", userid = user_id, password = password)

@@ -58,7 +58,10 @@ class ValidationGenerationEngine(EncryptionEngine, FileHandler):
         with open("UserCredentials.json", mode = "w") as ucredwrite:
             ucredwrite.write(json.dumps(ucredDict))
         print("Generated new user credentials")
-        return True    
+        return True 
+
+#    def resetcredentials(self):
+           
         
         
         
