@@ -1,11 +1,11 @@
 # The Art of Code: A Pythonic approach
 This repository is a part of an online course taken by me for School kids to teach them the fundamental idea behind programming and computer science. This course was primarily taught using Python.  
 
-## This course included:
-1. Hands on Labs using Colab Notebooks.
-2. Lecture notes on specific computer science concepts
-3. Road map to continue learning and building with Python.
-4. Links to useful open source resources and packages
+## This course includes:
+1. Hands on Labs using Colab Notebooks.(Soon to be uploaded)
+2. Lecture notes on specific computer science concepts(Soon to be uploaded)
+3. Road map to continue learning and building with Python. (Soon to be uploaded)
+4. Links to useful open source resources and packages (Soon to be uploaded)
 
 ## Contents:
 1. A brief introduction to computer science
