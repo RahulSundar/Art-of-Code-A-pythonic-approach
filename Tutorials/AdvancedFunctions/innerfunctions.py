@@ -6,6 +6,9 @@ def innerfunctions():
     def secondone():
         print("This is the second function")
 
+
+    firstone()
+    secondone()
     return [firstone, secondone] # return a list
     #return(firstone, secondone) # return a tuple
     #return firstone, secondone # return an unpacked
