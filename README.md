@@ -32,4 +32,15 @@ This repository is a part of an online course taken by me for School kids to tea
 9. Python: Python package development
   
   
-  
+## Citation:
+If you find this useful and plan to use this in your courses, please do feel free to cite this.
+```
+@misc{lia_corrales_2015_15991,
+    author       = {Rahul Sundar},
+    title        = {{Art of Code - A pythonic Approach to problem solving}},
+    month        = Jul,
+    year         = 2020,
+    version      = {1.0},
+    url          = {https://github.com/RahulSundar/Art-of-Code-A-pythonic-approach/}
+    }
+```
